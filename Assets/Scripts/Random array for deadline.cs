@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Randomarrayfordeadline : MonoBehaviour
 {
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +28,16 @@ public class Randomarrayfordeadline : MonoBehaviour
         {
             int[] myArray = new int[] { 1, 2, 3, 4, 5 };
         }
+
+       
+
+        /*int y = 0;
+
+        do
+        {
+            (y);
+            ++;
+        }
+        while (y < 10);*/
     }
 }
