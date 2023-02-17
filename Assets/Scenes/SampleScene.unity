@@ -606,7 +606,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0.1, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -935,11 +935,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 2111338249}
   cam: {fileID: 963194228}
-  speed: 5
+  speed: 8
   walkSpeed: 0
-  sprintSpeed: 0
+  jumpHeight: 5
   turnSmoothTime: 0.1
-  gravity: -20
+  gravity: -35
   groundCheck: {fileID: 740504607}
   groundDistance: 0.4
   groundMask:

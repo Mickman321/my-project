@@ -7,9 +7,12 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public Transform cam;
 
-    public float speed = 12f;
+    public float speed = 24f;
     public float walkSpeed;
-    public float sprintSpeed;
+    // public float sprintSpeed;
+    //[SerializeField, Range(1, 10)]
+    //float sprintSpeed;
+    public float jumpHeight = 10f;
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -79,6 +82,11 @@ public class PlayerMovement : MonoBehaviour
         /*Vector3 move = transform.right * x + transform.forward * z;
 
         controller.Move(move * speed * Time.deltaTime);*/
+
+       if (Input.GetButtonDown("Jump") && isGrounded)
+       {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); 
+       }
 
         velocity.y += gravity * Time.deltaTime;
 
