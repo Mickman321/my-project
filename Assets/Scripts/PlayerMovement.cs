@@ -29,6 +29,12 @@ public class PlayerMovement : MonoBehaviour
 
     bool isGrounded;
 
+    [SerializeField]
+    private float jumpTimeCounter;
+    [SerializeField]
+    public float jumpTime;
+    private bool isJumping;
+    private float jumpForce;
 
 
     // det dem här variablerna gör är att, kolla gravitation och öka velocity, hur mycket distance du är från marken, om spelaren är på marken, att referera till character controller i unity, hur mycket fart spelaren har.
@@ -83,11 +89,48 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);*/
 
-       if (Input.GetButtonDown("Jump") && isGrounded)
-       {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); 
 
-       }
+        /* if (Input.GetButtonDown("Jump") && isGrounded)
+         {
+             //  velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); 
+
+             print("ground jump");
+             isJumping = true;
+             jumpTimeCounter = jumpTime;
+             rb.velocity = Vector2.up * jumpForce;
+
+
+         }*/
+
+        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space)) // Den här kollar om spelaren är på marken om den är så ska man kunna man kunna trycka på space för att hoppa.
+        {
+            print("ground jump");
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
+            velocity = Vector3.up * jumpHeight;
+        }
+
+        if (Input.GetKey(KeyCode.Space) && isJumping == true) /* Den här koden ser till så att när spelaren trycker på space och inte håller ner space
+                                                               så blir det ett kortare hopp och den ser också till så att det inte funkar i luften.*/
+        {
+
+
+            if (jumpTimeCounter > 0)
+            {
+                print("continue jump");
+                velocity = Vector3.up * jumpHeight;
+                jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                print("nej jump");
+                isJumping = false;
+            }
+        }
+        else
+        {
+            isJumping = false;
+        }
 
         velocity.y += gravity * Time.deltaTime;
 
