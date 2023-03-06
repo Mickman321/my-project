@@ -937,7 +937,7 @@ MonoBehaviour:
   cam: {fileID: 963194228}
   speed: 8
   walkSpeed: 0
-  jumpHeight: 5
+  jumpHeight: 10
   turnSmoothTime: 0.1
   gravity: -35
   groundCheck: {fileID: 740504607}
@@ -945,4 +945,6 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  jumpTimeCounter: 1
+  jumpTime: 0.25
   state: 0
