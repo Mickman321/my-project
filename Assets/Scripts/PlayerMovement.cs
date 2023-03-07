@@ -35,7 +35,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpTime;
     private bool isJumping;
     private float jumpForce;
-
+    public float wallrunSpeed;
+    public bool wallrunning;
 
     // det dem här variablerna gör är att, kolla gravitation och öka velocity, hur mycket distance du är från marken, om spelaren är på marken, att referera till character controller i unity, hur mycket fart spelaren har.
     //Animations skapad av Niljas och scriptade, Används dock inte eftersom jag använder en annan script för animations.
@@ -50,7 +51,8 @@ public class PlayerMovement : MonoBehaviour
     {
         walking,
         sprinting,
-        air
+        wallrunning,
+        air,
     }
     // Start is called before the first frame update
     void Start()
@@ -97,10 +99,19 @@ public class PlayerMovement : MonoBehaviour
              print("ground jump");
              isJumping = true;
              jumpTimeCounter = jumpTime;
-             rb.velocity = Vector2.up * jumpForce;
+             velocity = Vector3.up * jumpHeight;
 
 
-         }*/
+         }
+        
+           if (Input.GetButtonDown("Jump") && isGrounded)
+           {
+        
+       
+       
+           }
+
+         */
 
         if (isGrounded == true && Input.GetKeyDown(KeyCode.Space)) // Den här kollar om spelaren är på marken om den är så ska man kunna man kunna trycka på space för att hoppa.
         {
@@ -140,11 +151,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void StateHandler()
     {
-        // Mode - Sprinting
-       /* if(isGrounded) && Input.GetKey(sprintKey))
+        // Mode - wallrunning
+        if(wallrunning)
         {
-        
-        }*/
+            state = MovementState.wallrunning;
+            speed = wallrunSpeed;
+        }
     }
 
 }
