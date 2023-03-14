@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallRunning : MonoBehaviour
 {
-    /*public CharacterController controller;
+    public CharacterController controller;
 
     [Header("Wallrunning")]
     public LayerMask whatIsWall;
@@ -100,7 +100,7 @@ public class WallRunning : MonoBehaviour
        // cc.useGravity = false; //stäng av gravity
         pm.gravity = 0;
        // cc.
-        pm.velocity = new Vector3(cc.velocity.x, 0f, cc.velocity.z);
+        pm.velocity = new Vector3(pm.velocity.x, 0f, pm.velocity.z);
 
         Vector3 wallNormal = wallRight ? rightWallhit.normal : leftWallhit.normal;
 
@@ -110,21 +110,21 @@ public class WallRunning : MonoBehaviour
             wallForward = -wallForward;
 
         // forward force
-        cc.AddForce(wallForward * wallRunForce, ForceMode.Force);
+        //(wallForward * wallRunForce, ForceMode.Force);
 
         // upwards/downwards force
         if (upwardsRunning)
-            cc.velocity = new Vector3(cc.velocity.x, wallClimbSpeed, cc.velocity.z);
+            pm.velocity = new Vector3(pm.velocity.x, wallClimbSpeed, pm.velocity.z);
         if (downwardsRunning)
-            cc.velocity = new Vector3(cc.velocity.x, -wallClimbSpeed, cc.velocity.z);
+            pm.velocity = new Vector3(pm.velocity.x, -wallClimbSpeed, pm.velocity.z);
 
         // push to wall force
-        if (!(wallLeft && horizontalInput > 0) && !(wallRight && horizontalInput < 0))
-            cc.AddForce(-wallNormal * 100, ForceMode.Force);
+        if (!(wallLeft && horizontalInput > 0) && !(wallRight && horizontalInput < 0)) ;
+            //(-wallNormal * 100, ForceMode.Force);
     }
 
     private void StopWallRun()
     {
         pm.wallrunning = false;
-    }*/
+    }
 }

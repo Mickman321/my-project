@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
             velocity = Vector3.up * jumpHeight;
         }
 
-        if (Input.GetKey(KeyCode.Space) && isJumping == true) /* Den här koden ser till så att när spelaren trycker på space och inte håller ner space
+        if (Input.GetButton("Jump") && isJumping == true) /* Den här koden ser till så att när spelaren trycker på space och inte håller ner space
                                                                så blir det ett kortare hopp och den ser också till så att det inte funkar i luften.*/
         {
 
