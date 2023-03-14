@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallRunning : MonoBehaviour
 {
-   /* public CharacterController controller;
+    /*public CharacterController controller;
 
     [Header("Wallrunning")]
     public LayerMask whatIsWall;
@@ -97,8 +97,10 @@ public class WallRunning : MonoBehaviour
 
     private void WallRunningMovement()
     {
-        cc.useGravity = false;
-        cc.velocity = new Vector3(cc.velocity.x, 0f, cc.velocity.z);
+       // cc.useGravity = false; //stäng av gravity
+        pm.gravity = 0;
+       // cc.
+        pm.velocity = new Vector3(cc.velocity.x, 0f, cc.velocity.z);
 
         Vector3 wallNormal = wallRight ? rightWallhit.normal : leftWallhit.normal;
 

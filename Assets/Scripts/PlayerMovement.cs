@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
-    Vector3 velocity;
+    public Vector3 velocity;
 
     public float gravity = -9.81f;
 
@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
          */
 
-        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space)) // Den här kollar om spelaren är på marken om den är så ska man kunna man kunna trycka på space för att hoppa.
+        if (isGrounded == true && Input.GetButtonDown("Jump")) // Den här kollar om spelaren är på marken om den är så ska man kunna man kunna trycka på space för att hoppa.
         {
             print("ground jump");
             isJumping = true;
