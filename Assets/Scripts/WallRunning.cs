@@ -21,6 +21,7 @@ public class WallRunning : MonoBehaviour
     private bool downwardsRunning;
     private float horizontalInput;
     private float verticalInput;
+    
 
     [Header("Detection")]
     public float wallCheckDistance;
@@ -30,21 +31,35 @@ public class WallRunning : MonoBehaviour
     private bool wallLeft;
     private bool wallRight;
 
+    [SerializeField]
+    private float jumpTimeCounter;
+    [SerializeField]
+    public float jumpTime;
+    private bool isJumping;
+    private float jumpForce;
+    public float jumpHeight = 10f;
+
     [Header("References")]
     public Transform orientation;
     private PlayerMovement pm;
     private CharacterController cc;
+    private Rigidbody rb;
+
+
+    Vector3 vector = new Vector3(1, 0, 0);
 
     // Start is called before the first frame update
     void Start()
     {
         cc = GetComponent<CharacterController>();
         pm = GetComponent<PlayerMovement>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     private void Update()
     {
+        
         CheckForWall();
         StateMachine();
     }
@@ -80,6 +95,38 @@ public class WallRunning : MonoBehaviour
         {
             if (!pm.wallrunning)
                 StartWallRun();
+            // if (Input.GetButton("Jump") && isJumping == true) /* Den här koden ser till så att när spelaren trycker på space och inte håller ner space
+            //så blir det ett kortare hopp och den ser också till så att det inte funkar i luften.*/
+            /* {
+
+
+                 if (jumpTimeCounter > 0)
+                 {
+                     print("continue jump");
+                     pm.velocity = Vector3.up * jumpHeight;
+                     jumpTimeCounter -= Time.deltaTime;
+                 }
+                 else
+                 {
+                     print("nej jump");
+                     isJumping = false;
+                 }
+             }
+             else
+             {
+                 isJumping = false;
+             }*/
+            if (Input.GetButton("Jump"))
+            {
+                //  velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); 
+
+                print("ground jump");
+                isJumping = true;
+                jumpTimeCounter = jumpTime;
+                pm.velocity = Vector3.up * jumpHeight;
+
+
+            }
         }
 
         // State 3 - None
@@ -110,7 +157,7 @@ public class WallRunning : MonoBehaviour
             wallForward = -wallForward;
 
         // forward force
-        //(wallForward * wallRunForce, ForceMode.Force);
+            rb.AddForce(wallForward * wallRunForce, ForceMode.Force);
 
         // upwards/downwards force
         if (upwardsRunning)
@@ -119,12 +166,16 @@ public class WallRunning : MonoBehaviour
             pm.velocity = new Vector3(pm.velocity.x, -wallClimbSpeed, pm.velocity.z);
 
         // push to wall force
-        if (!(wallLeft && horizontalInput > 0) && !(wallRight && horizontalInput < 0)) ;
-            //(-wallNormal * 100, ForceMode.Force);
+        /*if(Physics.CheckSphere(position,5f,"Wall"))
+            ()*/
+
+        if (!(wallLeft && horizontalInput > 0) && !(wallRight && horizontalInput < 0)) 
+            rb.AddForce(-wallNormal * 100, ForceMode.Force);
     }
 
     private void StopWallRun()
     {
         pm.wallrunning = false;
+        pm.gravity = -35f;
     }
 }
