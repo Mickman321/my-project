@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 24f;
     public float walkSpeed;
+    public float climbSpeed;
     // public float sprintSpeed;
     //[SerializeField, Range(1, 10)]
     //float sprintSpeed;
@@ -27,7 +28,8 @@ public class PlayerMovement : MonoBehaviour
 
     public LayerMask groundMask;
 
-    bool isGrounded;
+    public bool isGrounded;
+    public bool climbing;
 
     [SerializeField]
     private float jumpTimeCounter;
@@ -51,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     {
         walking,
         sprinting,
+        climbing,
         wallrunning,
         air,
     }
