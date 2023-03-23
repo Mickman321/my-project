@@ -160,10 +160,10 @@ public class WallRunning : MonoBehaviour
             rb.AddForce(wallForward * wallRunForce, ForceMode.Force);
 
         // upwards/downwards force
-        if (upwardsRunning)
+       /* if (upwardsRunning)
             pm.velocity = new Vector3(pm.velocity.x, wallClimbSpeed, pm.velocity.z);
         if (downwardsRunning)
-            pm.velocity = new Vector3(pm.velocity.x, -wallClimbSpeed, pm.velocity.z);
+            pm.velocity = new Vector3(pm.velocity.x, -wallClimbSpeed, pm.velocity.z);*/
 
         // push to wall force
         /*if(Physics.CheckSphere(position,5f,"Wall"))
