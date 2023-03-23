@@ -147,7 +147,7 @@ Material:
     - _HairSpecularSize: 0.8
     - _HairSpecularSmoothness: 0.1
     - _HalfToneDiffuseStep: 0
-    - _HalfToneEnabled: 1
+    - _HalfToneEnabled: 0
     - _HalfToneIncludeReceivedShadow: 1
     - _HalfToneShape: 2
     - _HalfToneUvMode: 0
@@ -203,10 +203,10 @@ Material:
     - _StepViaRampTexture: 1
     - _Surface: 0
     - _UVSec: 0
-    - _UseRampColor: 1
+    - _UseRampColor: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.19215688, g: 0.6509804, b: 0.8000001, a: 1}
+    - _BaseColor: {r: 0.19215688, g: 0.6509804, b: 0.8000001, a: 0.5}
     - _Color: {r: 0.5137255, g: 0.8745099, b: 0.96470594, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FaceFrontDirection: {r: 0, g: 0, b: 1, a: 0}
