@@ -200,7 +200,7 @@ Material:
     - _SrcBlend: 1
     - _StencilComp: 0
     - _StencilRef: 33.1
-    - _StepViaRampTexture: 1
+    - _StepViaRampTexture: 0
     - _Surface: 0
     - _UVSec: 0
     - _UseRampColor: 0

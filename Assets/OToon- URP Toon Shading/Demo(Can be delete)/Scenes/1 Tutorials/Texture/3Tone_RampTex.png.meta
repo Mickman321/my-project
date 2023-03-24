@@ -91,6 +91,6 @@ TextureImporter:
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
-  userData: '{"mode":0,"colorKeys":[{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":0.0},{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":1.0}]}'
+  userData: '{"mode":0,"colorKeys":[{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":0.41765469312667849},{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":0.6147096753120422}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":0.34117648005485537},{"alpha":1.0,"time":0.6029449701309204}]}'
   assetBundleName: 
   assetBundleVariant: 

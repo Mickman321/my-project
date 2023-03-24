@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: HatchingDemo
   m_Shader: {fileID: 4800000, guid: 933f24cde1e3f6a41818f56d729421ab, type: 3}
-  m_ShaderKeywords: _HALFTONESHAPE_DOT _HALFTONE_SHADING_ON _SPECULARHIGHLIGHTS_OFF
+  m_ShaderKeywords: _HALFTONESHAPE_DOT _HALFTONE_SHADING_ON _OUTLINE _SPECULARHIGHLIGHTS_OFF
     _TOON_SHADING_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -164,7 +164,10 @@ Material:
     - _HalfToneIncludeReceivedShadow: 0
     - _HalfToneShape: 0
     - _HalfToneUvMode: 1
+    - _HalftoneFadeDistance: 10
+    - _HalftoneFadeToColor: 0
     - _HalftoneNoiseClip: 0
+    - _HalftoneTilling: 8
     - _HatchDiffuseOffset: 0
     - _HatchDrawStrength: 1
     - _HatchLowerBound: 0.1
@@ -182,7 +185,7 @@ Material:
     - _NoiseScale: 1
     - _NoiseStrength: 0.1
     - _OcclusionStrength: 1
-    - _OutlineEnabled: 0
+    - _OutlineEnabled: 1
     - _OutlineMode: 0
     - _OutlineWidth: 6.7
     - _Parallax: 0.005
@@ -231,7 +234,7 @@ Material:
     - _HalfToneColor: {r: 1, g: 0, b: 0, a: 1}
     - _HatchColor: {r: 0, g: 0, b: 0, a: 1}
     - _HatchingColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineDistancFade: {r: -25, g: 50, b: 0, a: 0}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 0}
