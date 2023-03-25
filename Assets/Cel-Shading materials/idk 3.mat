@@ -158,7 +158,7 @@ Material:
     - _HatchingDensity: 1
     - _HatchingDiffuseOffset: 0
     - _HatchingDrawStrength: 1
-    - _HatchingEnabled: 0
+    - _HatchingEnabled: 1
     - _HatchingRotation: 0
     - _HatchingSmoothness: 0.1
     - _HighIntensity: 1.5
@@ -172,7 +172,7 @@ Material:
     - _OutlineEnabled: 1
     - _OutlineMode: 0
     - _OutlineSize: 5
-    - _OutlineWidth: 5.38
+    - _OutlineWidth: 6
     - _OverrideShadowColor: 1
     - _Parallax: 0.02
     - _QueueOffset: 0

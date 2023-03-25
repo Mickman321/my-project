@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: robot 2
-  m_Shader: {fileID: 4800000, guid: 933f24cde1e3f6a41818f56d729421ab, type: 3}
+  m_Shader: {fileID: 4800000, guid: e88aeddd2ef1f934d805981244872e27, type: 3}
   m_ShaderKeywords: _HALFTONESHAPE_CROSS _NORMALMAP _OUTLINE _TOON_SHADING_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -156,11 +156,11 @@ Material:
     - _HalftoneNoiseClip: 0.8
     - _HalftoneTilling: 114.64
     - _HatchingDensity: 1.57
-    - _HatchingDiffuseOffset: -1
-    - _HatchingDrawStrength: 8.6
+    - _HatchingDiffuseOffset: -0.08
+    - _HatchingDrawStrength: 15
     - _HatchingEnabled: 1
-    - _HatchingRotation: 0
-    - _HatchingSmoothness: 0.01
+    - _HatchingRotation: 11.1
+    - _HatchingSmoothness: 0.274
     - _HighIntensity: 1.5
     - _LightScalar: 1.5
     - _LowIntensity: 0.2
@@ -221,7 +221,7 @@ Material:
     - _HighColor: {r: 0.91768557, g: 0.7896493, b: 0.990566, a: 1}
     - _LowColor: {r: 0.2735849, g: 0.0064524733, b: 0.25465414, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineDistancFade: {r: -11.666667, g: 50, b: 0, a: 0}
+    - _OutlineDistancFade: {r: -12, g: 50, b: 0, a: 0}
     - _RimColor: {r: 0.5568628, g: 0.058823533, b: 0.52156866, a: 1}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
