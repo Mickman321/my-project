@@ -145,7 +145,7 @@ public class WallRunning : MonoBehaviour
     private void WallRunningMovement()
     {
        // cc.useGravity = false; //stäng av gravity
-        pm.gravity = 0;
+        pm.gravity = -10f;
        // cc.
         pm.velocity = new Vector3(pm.velocity.x, 0f, pm.velocity.z);
 
