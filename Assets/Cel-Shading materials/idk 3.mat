@@ -172,7 +172,7 @@ Material:
     - _OutlineEnabled: 1
     - _OutlineMode: 0
     - _OutlineSize: 5
-    - _OutlineWidth: 6
+    - _OutlineWidth: 5
     - _OverrideShadowColor: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
