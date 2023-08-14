@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Playermove : MonoBehaviour
 {
     public CharacterController controller;
     public Transform cam;
-
 
     public float speed = 24f;
     public float walkSpeed;
@@ -33,18 +32,6 @@ public class PlayerMovement : MonoBehaviour
     public bool climbing;
 
     [SerializeField]
-    KeyCode Forward;
-
-    [SerializeField]
-    KeyCode Left;
-
-    [SerializeField]
-    KeyCode Right;
-
-    [SerializeField]
-    KeyCode Backward;
-
-    [SerializeField]
     private float jumpTimeCounter;
     [SerializeField]
     public float jumpTime;
@@ -53,15 +40,10 @@ public class PlayerMovement : MonoBehaviour
     public float wallrunSpeed;
     public bool wallrunning;
 
-    Animator m_Animator;
-    public Animator animator;
-    // det dem här variablerna gör är att, kolla gravitation och öka velocity, hur mycket distance du är från marken, om spelaren är på marken, att referera till character controller i unity, hur mycket fart spelaren har.
-    //Animations skapad av Niljas och scriptade, Används dock inte eftersom jag använder en annan script för animations.
-    private bool isMovingForward = false;
-    private bool isMovingBackwards = false;
 
-    Animator Am;
-    Rigidbody rb;
+   
+    // det dem här variablerna gör är att, kolla gravitation och öka velocity, hur mycket distance du är från marken, om spelaren är på marken, att referera till character controller i unity, hur mycket fart spelaren har.
+   // PhotonView view;
 
     public MovementState state;
     public enum MovementState
@@ -75,46 +57,59 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_Animator = FindObjectOfType<Animator>();
+       // view = GetComponent<PhotonView>();
+       // if (view.IsMine)
+      //  {
+           // FindObjectOfType<CinemachineVirtualCamera>().Follow = gameObject.transform;
+       // }
     }
 
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        //Debug.DrawRay(groundCheck.position, -Vector3.up * groundDistance);
+       
 
-        if(isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
+           
 
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+            //Debug.DrawRay(groundCheck.position, -Vector3.up * groundDistance);
 
-        /* if (Input.GetAxisRaw("Horizontal"))
-         {
-             m_Animator.SetFloat("Run", speed);
-         }*/
+            if (isGrounded && velocity.y < 0)
+            {
+                velocity.y = -2f;
+            }
 
-      /*  if (Input.GetKey(forward))
-        {
-            m_Animator.SetFloat("Run", speed);
-        }*/
+            float x = Input.GetAxisRaw("Horizontal");
+            float z = Input.GetAxisRaw("Vertical");
 
             Vector3 direction = new Vector3(x, 0f, z).normalized;
 
-       if (direction.magnitude >= 0.1f)
-        {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            if (direction.magnitude >= 0.1f)
+            {
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                transform.rotation = Quaternion.Euler(30f, angle, 0f);
 
-            
 
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
-        }
+                Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                controller.Move(moveDir.normalized * speed * Time.deltaTime);
+
+            }
+            else if (direction.magnitude >= 0f)
+            {
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+
+
+
+            }
+
+
+
+        
+
 
         /*Vector3 move = transform.right * x + transform.forward * z;
 
@@ -141,53 +136,6 @@ public class PlayerMovement : MonoBehaviour
            }
 
          */
-        if (Input.GetKey(Forward))
-        {
-            m_Animator.SetFloat("Run", speed);
-        }
-
-        else if (Input.GetKey(Left))
-        {
-            m_Animator.SetFloat("Run", speed);
-        }
-
-        else if (Input.GetKey(Right))
-        {
-            m_Animator.SetFloat("Run", speed);
-        }
-
-        else if (Input.GetKey(Backward))
-        {
-            m_Animator.SetFloat("Run", speed);
-        }
-        else
-        {
-            m_Animator.SetFloat("Run", 0);
-        }
-     /*
-        if (Input.GetButton("Forward"))
-        {
-            m_Animator.SetFloat("Run", speed);
-        }
-
-        else if (Input.GetButton("Left"))
-        {
-            m_Animator.SetFloat("Run", speed);
-        }
-
-        else if (Input.GetButton("Right"))
-        {
-            m_Animator.SetFloat("Run", speed);
-        }
-
-        else if (Input.GetButton("Backward"))
-        {
-            m_Animator.SetFloat("Run", speed);
-        }
-        else
-        {
-            m_Animator.SetFloat("Run", 0);
-        }*/
 
         if (isGrounded == true && Input.GetButtonDown("Jump")) // Den här kollar om spelaren är på marken om den är så ska man kunna man kunna trycka på space för att hoppa.
         {
@@ -228,13 +176,20 @@ public class PlayerMovement : MonoBehaviour
     private void StateHandler()
     {
         // Mode - wallrunning
-        if(wallrunning)
+        if (wallrunning)
         {
             state = MovementState.wallrunning;
             speed = wallrunSpeed;
         }
     }
 
+   /* private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.GetComponent<PowerupBase>() != null)
+        {
+            powerup = hit.gameObject.GetComponent<PowerupBase>();
+            powerup.gameObject.SetActive(false);
+        }
+    }*/
+
 }
-
-
