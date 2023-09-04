@@ -216,37 +216,37 @@ public class TheMove : MonoBehaviour
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
 
+        m_Animator.SetTrigger("Jump");
+
+        /* if (grounded == true && Input.GetButtonDown("Jump")) // Den här kollar om spelaren är på marken om den är så ska man kunna man kunna trycka på space för att hoppa.
+         {
+             print("ground jump");
+             isJumping = true;
+             jumpTimeCounter = jumpTime;
+             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+         }
+
+         if (Input.GetButton("Jump") && isJumping == true) /* Den här koden ser till så att när spelaren trycker på space och inte håller ner space
+                                                                så blir det ett kortare hopp och den ser också till så att det inte funkar i luften.*/
+        /* {
 
 
-       /* if (grounded == true && Input.GetButtonDown("Jump")) // Den här kollar om spelaren är på marken om den är så ska man kunna man kunna trycka på space för att hoppa.
-        {
-            print("ground jump");
-            isJumping = true;
-            jumpTimeCounter = jumpTime;
-            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-        }
-
-        if (Input.GetButton("Jump") && isJumping == true) /* Den här koden ser till så att när spelaren trycker på space och inte håller ner space
-                                                               så blir det ett kortare hopp och den ser också till så att det inte funkar i luften.*/
-       /* {
-
-
-            if (jumpTimeCounter > 0)
-            {
-                print("continue jump");
-                rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-                jumpTimeCounter -= Time.deltaTime;
-            }
-            else
-            {
-                print("nej jump");
-                isJumping = false;
-            }
-        }
-        else
-        {
-            isJumping = false;
-        }*/
+             if (jumpTimeCounter > 0)
+             {
+                 print("continue jump");
+                 rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+                 jumpTimeCounter -= Time.deltaTime;
+             }
+             else
+             {
+                 print("nej jump");
+                 isJumping = false;
+             }
+         }
+         else
+         {
+             isJumping = false;
+         }*/
     }
     private void ResetJump()
     {
