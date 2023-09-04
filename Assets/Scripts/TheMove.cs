@@ -83,7 +83,7 @@ public class TheMove : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         m_Animator = FindObjectOfType<Animator>();
-        // readyToJump = true;
+         readyToJump = true;
     }
 
     private void Update()
@@ -144,15 +144,15 @@ public class TheMove : MonoBehaviour
 
      
         // when to jump
-        /* if (Input.GetButtonDown("Jump") && readyToJump && grounded)
+         if (Input.GetButtonDown("Jump") && readyToJump && grounded)
          {
              readyToJump = false;
 
              Jump();
 
              Invoke(nameof(ResetJump), jumpCooldown);
-         }*/
-        if (grounded == true && Input.GetButtonDown("Jump")) // Den här kollar om spelaren är på marken om den är så ska man kunna man kunna trycka på space för att hoppa.
+         }
+       /* if (grounded == true && Input.GetButtonDown("Jump")) // Den här kollar om spelaren är på marken om den är så ska man kunna man kunna trycka på space för att hoppa.
         {
             print("ground jump");
             isJumping = true;
@@ -162,7 +162,7 @@ public class TheMove : MonoBehaviour
 
         if (Input.GetButton("Jump") && isJumping == true) /* Den här koden ser till så att när spelaren trycker på space och inte håller ner space
                                                                så blir det ett kortare hopp och den ser också till så att det inte funkar i luften.*/
-        {
+       /* {
 
 
             if (jumpTimeCounter > 0)
@@ -180,7 +180,7 @@ public class TheMove : MonoBehaviour
         else
         {
             isJumping = false;
-        }
+        }*/
     }
 
     private void MovePlayer()
@@ -212,9 +212,11 @@ public class TheMove : MonoBehaviour
     private void Jump()
     {
         // reset y velocity
-       // rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-       // rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+
 
        /* if (grounded == true && Input.GetButtonDown("Jump")) // Den här kollar om spelaren är på marken om den är så ska man kunna man kunna trycka på space för att hoppa.
         {
